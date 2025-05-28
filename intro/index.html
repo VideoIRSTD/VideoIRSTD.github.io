@@ -2,84 +2,84 @@
 <html lang="zh">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CSIG2025 红外视频卫星空中动目标检测挑战赛 任务设置、数据集简介及评价方式。">
-  <meta property="og:title" content="CSIG2025 红外视频卫星空中动目标检测挑战赛">
-  <meta property="og:site_name" content="CSIG2025">
-  <meta property="og:url" content="https://wideirstd.github.io/">
-  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-  <title>赛事说明 - CSIG2025 红外视频卫星空中动目标检测挑战赛</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    body { margin:0; padding:0; font-family:'Roboto',sans-serif; background:#fff; color:#333; }
-    .outer-container { max-width:1200px; margin:0 auto; padding:20px 15px; }
-    .page-content h2 { text-align:center; margin:2em 0 1em; }
-    .page-content p { max-width:1000px; margin:0 auto 1em; text-indent:2em; line-height:1.6; }
-    .formula-block { text-align:center; margin:1em 0; }
-    .formula-block p { text-indent:0; margin:4px 0; }
-  </style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CSIG2025 红外视频卫星空中动目标检测挑战赛 任务设置、数据集简介及评价方式。">
+<meta property="og:title" content="CSIG2025 红外视频卫星空中动目标检测挑战赛">
+<meta property="og:site_name" content="CSIG2025">
+<meta property="og:url" content="https://wideirstd.github.io/">
+<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+<title>赛事说明 - CSIG2025 红外视频卫星空中动目标检测挑战赛</title>
+<!-- CSS -->
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/main.css">
+<style>
+  body { margin:0; padding:0; font-family:'Roboto',sans-serif; background:#fff; color:#333; }
+  .outer-container { max-width:1200px; margin:0 auto; padding:20px 15px; }
+  .page-content h2 { text-align:center; margin:2em 0 1em; }
+  .page-content p { max-width:1000px; margin:0 auto 1em; text-indent:2em; line-height:1.6; }
+  .formula-block { text-align:center; margin:1em 0; }
+  .formula-block p { text-indent:0; margin:4px 0; }
+</style>
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="outer-container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="../index.html">CSIG2025</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
-        <li><a href="../index.html">主页</a></li>
-        <li><a href="../schedule/index.html">赛事日程</a></li>
-        <li class="active"><a href="./index.html">赛事说明</a></li>
-        <li><a href="../submission/index.html">赛事报名</a></li>
-        <li><a href="../organizers/index.html">赛事组织</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="outer-container">
-    <div class="page-content">
-      <!-- 任务设置 -->
-      <h2 id="TaskSetting">任务设置</h2>
-      <p>本次竞赛的主要任务是对视频中的红外小目标质心进行预测，附加任务是对目标进行跟踪。参赛队伍可根据红外视频特点自行设计算法，利用主办方提供的数据集进行模型训练和验证，最终以召回率（Recall）、精确率（Precision）和F1分数衡量主体性能，轨迹完整度和轨迹准确度作为附加评价指标。</p>
-
-      <!-- 数据集简介 -->
-      <h2 id="DatasetIntroduction">数据集简介</h2>
-      <p>竞赛数据由国防科技大学与武汉大学联合开发，包括：基于热红外卫星的 IRAir 数据集、基于 Landsat 卫星的 IRSatVideo-LEO 数据集，以及武汉一号卫星实测热红外视频数据。共 1400 段视频序列（1000 段用于训练，200 段用于验证，200 段用于测试）。比赛开始后，将发布训练集和验证集视频及掩码标签；进入评测阶段时公布测试集视频，测试集标签不公开。</p>
-
-      <!-- 评价方式 -->
-      <h2 id="EvaluationMethod">结果的评价方式</h2>
-      <p>本次竞赛的算法评价指标为召回率（Recall）和精确率（Precision），附加评价指标为轨迹完整度和轨迹准确度。算法最终评分结果由两部分组成：F1 分数与附加分数。</p>
-
-      <h3>公式如下：</h3>
-      <div class="formula-block">
-        <p>Recall = TD / AT</p>
-        <p>Precision = TD / (TD + FD)</p>
-      </div>
-      <p>其中 TD（True Detection）为正确检测目标数量，FD（False Detection）为虚警数量，AT（Amount of Target）为目标总数量。</p>
-
-      <h3>F1 分数定义为：</h3>
-      <div class="formula-block">
-        <p>F1 score = (2 * Recall * Precision) / (Recall + Precision)</p>
-      </div>
-
-      <h3>附加评价指标：</h3>
-      <div class="formula-block">
-        <p>轨迹完整度 = N_TA / N</p>
-        <p>轨迹准确度 = N_TA / N_A</p>
-      </div>
-      <p>其中 N_TA 为正确关联点数，N 为标签轨迹点总数，N_A 为算法关联点总数。</p>
-
-    </div>
+<nav class="navbar navbar-default">
+<div class="outer-container">
+  <div class="navbar-header">
+    <a class="navbar-brand" href="../index.html">CSIG2025</a>
   </div>
+  <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+    <li><a href="../index.html">主页</a></li>
+    <li><a href="../schedule/index.html">赛事日程</a></li>
+    <li class="active"><a href="./index.html">赛事说明</a></li>
+    <li><a href="../submission/index.html">赛事报名</a></li>
+    <li><a href="../organizers/index.html">赛事组织</a></li>
+  </ul>
+</div>
+</nav>
 
-  <!-- JS -->
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<div class="outer-container">
+<div class="page-content">
+<!-- 任务设置 -->
+<h2 id="TaskSetting">任务设置</h2>
+<p>本次竞赛的主要任务是对视频中的红外小目标质心进行预测，附加任务是对目标进行跟踪。参赛队伍可根据红外视频特点自行设计算法，利用主办方提供的数据集进行模型训练和验证，最终以召回率（Recall）、精确率（Precision）和F1分数衡量主体性能，轨迹完整度和轨迹准确度作为附加评价指标。</p>
+
+<!-- 数据集简介 -->
+<h2 id="DatasetIntroduction">数据集简介</h2>
+<p>竞赛数据由国防科技大学与武汉大学联合开发，包括：基于热红外卫星的 IRAir 数据集、基于 Landsat 卫星的 IRSatVideo-LEO 数据集，以及武汉一号卫星实测热红外视频数据。共 1400 段视频序列（1000 段用于训练，200 段用于验证，200 段用于测试）。比赛开始后，将发布训练集和验证集视频及掩码标签；进入评测阶段时公布测试集视频，测试集标签不公开。</p>
+
+<!-- 评价方式 -->
+<h2 id="EvaluationMethod">结果的评价方式</h2>
+<p>本次竞赛的算法评价指标为召回率（Recall）和精确率（Precision），附加评价指标为轨迹完整度和轨迹准确度。算法最终评分结果由两部分组成：F1 分数与附加分数。</p>
+
+<h3>公式如下：</h3>
+<div class="formula-block">
+  <p>Recall = TD / AT</p>
+  <p>Precision = TD / (TD + FD)</p>
+</div>
+<p>其中 TD（True Detection）为正确检测目标数量，FD（False Detection）为虚警数量，AT（Amount of Target）为目标总数量。</p>
+
+<h3>F1 分数定义为：</h3>
+<div class="formula-block">
+  <p>F1 score = (2 * Recall * Precision) / (Recall + Precision)</p>
+</div>
+
+<h3>附加评价指标：</h3>
+<div class="formula-block">
+  <p>轨迹完整度 = N_TA / N</p>
+  <p>轨迹准确度 = N_TA / N_A</p>
+</div>
+<p>其中 N_TA 为正确关联点数，N 为标签轨迹点总数，N_A 为算法关联点总数。</p>
+
+</div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
