@@ -64,44 +64,65 @@
       <h2 id="DatasetIntroduction">数据集简介</h2>
       <p>竞赛数据由国防科技大学与武汉大学联合开发，包括：基于热红外卫星的 IRAir 数据集、基于 Landsat 卫星的 IRSatVideo-LEO 数据集，以及武汉一号卫星实测热红外视频数据。共 1400 段视频序列（1000 段用于训练，200 段用于验证，200 段用于测试）。比赛开始后，将发布训练集和验证集视频及掩码标签；进入评测阶段时公布测试集视频，测试集标签不公开。</p>
 
-      <!-- 评价方式 -->
-      <h2 id="EvaluationMethod">结果的评价方式</h2>
-      <p>本次竞赛的算法评价指标为召回率（Recall）和精确率（Precision），附加评价指标为轨迹完整度和轨迹准确度。算法最终评分结果由两部分组成：F1 分数与附加分数。</p>
-      <p>召回率（Recall）定义为正确检测的目标数量与目标总数量之比。当检测到的目标质心与对应掩码标签质心距离不超过阈值 <i>Thresh</i> 时，视为正确检测。</p>
-      <p>精确率（Precision）定义为正确检测的目标数量与检测输出目标总数量（包含虚警）的比值。当检测质心与任意标签质心距离均超过阈值 <i>d</i> 时，视为虚警目标。</p>
-      <p>公式如下：</p>
-      <p><strong>Recall = TD / AT</strong><br>
-         <strong>Precision = TD / (TD + FD)</strong><br>
-         其中 TD（True Detection）为正确检测目标数量，FD（False Detection）为虚警数量，AT（Amount of Target）为目标总数量。</p>
-      <p>F1 分数定义为：</p>
-      <p><strong>F1 score = (2 * Recall * Precision) / (Recall + Precision)</strong></p>
+     <!-- 评价方式 -->
+<section id="EvaluationMethod" class="outer-container">
+  <h2>结果的评价方式</h2>
 
-      <p>附加评价指标：<br>
-      <strong>轨迹完整度</strong> = N_TA / N，其中 N_TA 为正确关联点数，N 为标签轨迹点总数。<br>
-      <strong>轨迹准确度</strong> = N_TA / N_A，其中 N_A 为算法关联点总数。</p>
+  <div class="evaluation-text">
+    <p>本次竞赛的算法评价指标为<span class="highlight">召回率（Recall）</span>和<span class="highlight">精确率（Precision）</span>，附加评价指标为<span class="highlight">轨迹完整度</span>和<span class="highlight">轨迹准确度</span>。算法最终评分结果由两部分组成：<strong>F1 分数</strong>与<strong>附加分数</strong>。</p>
 
-      <p>附加得分分两部分计算：</p>
-      <table>
-        <thead>
-          <tr><th>轨迹完整度 ≥</th><th>90%</th><th>95%</th><th>98%</th><th>得分</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>得分</td><td></td><td></td><td></td><td>+2 / +3 / +5</td></tr>
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr><th>轨迹准确度 ≥</th><th>98%</th><th>99%</th><th>99.5%</th><th>得分</th></tr>
-        ></thead>
-        <tbody>
-          <tr><td>得分</td><td></td><td></td><td></td><td>+2 / +3 / +5</td></tr>
-        </tbody>
-      </table>
+    <h3>主体评价</h3>
+    <dl>
+      <dt>召回率 (Recall)</dt>
+      <dd>定义为正确检测的目标数量与目标总数量之比。当检测到的目标质心与对应掩码标签质心距离≤<em>Thresh</em> 时，视为正确检测。</dd>
 
-      <p>最终得分 = F1 score * 100 + 附加分数（轨迹完整度得分 + 轨迹准确度得分），最高分 110 分。</p>
+      <dt>精确率 (Precision)</dt>
+      <dd>定义为正确检测的目标数量与检测输出的总目标数量之比（包含虚警）。当检测质心与任何标签质心距离＞<em>d</em> 时，视为虚警目标。</dd>
+    </dl>
 
+    <div class="formula">
+      <p><strong>Recall = TD / AT</strong></p>
+      <p><strong>Precision = TD / (TD + FD)</strong></p>
+      <p>其中，TD = True Detections；FD = False Detections；AT = Amount of Targets。</p>
+
+      <p><strong>F1 score = (2 × Recall × Precision) / (Recall + Precision)</strong></p>
     </div>
+
+    <h3>附加评价指标</h3>
+    <dl>
+      <dt>轨迹完整度</dt>
+      <dd>定义为正确关联点数与标签轨迹点总数之比：<strong>N_TA / N</strong></dd>
+
+      <dt>轨迹准确度</dt>
+      <dd>定义为正确关联点数与算法关联点总数之比：<strong>N_TA / N_A</strong></dd>
+    </dl>
+
+    <h3>附加分数计算</h3>
+    <table class="evaluation-table">
+      <thead>
+        <tr>
+          <th>项目</th>
+          <th>阈值</th>
+          <th>得分</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>轨迹完整度</td>
+          <td>≥ 90% / 95% / 98%</td>
+          <td>+2 / +3 / +5</td>
+        </tr>
+        <tr>
+          <td>轨迹准确度</td>
+          <td>≥ 98% / 99% / 99.5%</td>
+          <td>+2 / +3 / +5</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="final-score">最终得分 = F1 score × 100 + 附加分数，最高 110 分。</p>
   </div>
+</section>
 
   <!-- JS -->
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
