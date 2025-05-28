@@ -17,13 +17,14 @@
     body { margin:0; padding:0; font-family: 'Roboto', sans-serif; }
     .outer-container { max-width:1200px; margin:0 auto; padding:20px; }
     h1,h2 { text-align:center; margin:1em 0; }
-    .grid-container { display: flex; flex-wrap: wrap; justify-content: center; gap:20px; }
-    .grid-item { width:160px; text-align:center; }
-    .grid-item img { width:128px; height:128px; border-radius:50%; object-fit:cover; }
+    .grid-container { display: flex; flex-wrap: wrap; justify-content: flex-start; gap:20px; }
+    .grid-item { flex: 0 0 calc(25% - 20px); text-align:center; }
+    .grid-item img { width:128px; height:128px; border-radius:50%; object-fit:cover; object-position:center center; }
     .member-name { margin:8px 0 4px; font-weight:bold; }
     .member-info { font-size:0.9em; color:#555; }
-    @media(max-width:768px){ .grid-item { width:45%; } }
-    @media(max-width:480px){ .grid-item { width:90%; } }
+    @media(max-width:992px){ .grid-item { flex: 0 0 calc(33.33% - 20px); } }
+    @media(max-width:768px){ .grid-item { flex: 0 0 calc(50% - 20px); } }
+    @media(max-width:480px){ .grid-item { flex: 0 0 100%; } }
   </style>
 </head>
 
@@ -48,44 +49,43 @@
 
     <h2>指导委员会</h2>
     <div class="grid-container">
-      <!-- Replace src paths with ../img/organizers/姓名.png -->
       <div class="grid-item">
-        <img src="../img/organizers/盛卫东.jpg" alt="盛卫东">
+        <img src="../img/organizers/盛卫东.jpg" alt="盛卫东" onerror="this.onerror=null; this.src='../img/organizers/盛卫东.png'">
         <div class="member-name">盛卫东</div>
         <div class="member-info">国防科技大学，红外小目标检测与跟踪</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/李博扬.jpg" alt="李博扬">
+        <img src="../img/organizers/李博扬.jpg" alt="李博扬" onerror="this.onerror=null; this.src='../img/organizers/李博扬.png'">
         <div class="member-name">李博扬</div>
         <div class="member-info">国防科技大学，红外小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/李淼.jpg" alt="李淼">
+        <img src="../img/organizers/李淼.jpg" alt="李淼" onerror="this.onerror=null; this.src='../img/organizers/李淼.png'">
         <div class="member-name">李淼</div>
         <div class="member-info">国防科技大学，红外小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/林再平.jpg" alt="林再平">
+        <img src="../img/organizers/林再平.jpg" alt="林再平" onerror="this.onerror=null; this.src='../img/organizers/林再平.png'">
         <div class="member-name">林再平</div>
         <div class="member-info">国防科技大学，红外小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/李志军.jpg" alt="李志军">
+        <img src="../img/organizers/李志军.jpg" alt="李志军" onerror="this.onerror=null; this.src='../img/organizers/李志军.png'">
         <div class="member-name">李志军</div>
         <div class="member-info">武汉大学，遥感卫星载荷设计与应用</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/凌强.png" alt="凌强">
+        <img src="../img/organizers/凌强.png" alt="凌强" onerror="this.onerror=null; this.src='../img/organizers/凌强.jpg'">
         <div class="member-name">凌强</div>
         <div class="member-info">国防科技大学，高光谱异常检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/肖超.jpg" alt="肖超">
+        <img src="../img/organizers/肖超.jpg" alt="肖超" onerror="this.onerror=null; this.src='../img/organizers/肖超.png'">
         <div class="member-name">肖超</div>
         <div class="member-info">国防科技大学，红外小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/徐耀坤.jpg" alt="徐耀坤">
+        <img src="../img/organizers/徐耀坤.jpg" alt="徐耀坤" onerror="this.onerror=null; this.src='../img/organizers/徐耀坤.png'">
         <div class="member-name">徐耀坤</div>
         <div class="member-info">国防科技大学，红外小目标检测</div>
       </div>
@@ -94,37 +94,37 @@
     <h2>组织委员会</h2>
     <div class="grid-container">
       <div class="grid-item">
-        <img src="../img/organizers/李若敬.jpg" alt="李若敬">
+        <img src="../img/organizers/李若敬.jpg" alt="李若敬" onerror="this.onerror=null; this.src='../img/organizers/李若敬.png'">
         <div class="member-name">李若敬</div>
         <div class="member-info">国防科技大学，红外序列小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/陈诺.jpg" alt="陈诺">
+        <img src="../img/organizers/陈诺.jpg" alt="陈诺" onerror="this.onerror=null; this.src='../img/organizers/陈诺.png'">
         <div class="member-name">陈诺</div>
         <div class="member-info">国防科技大学，红外小目标检测，事件相机</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/存照白色.jpg" alt="罗伊杭">
+        <img src="../img/organizers/罗伊杭.jpg" alt="罗伊杭" onerror="this.onerror=null; this.src='../img/organizers/罗伊杭.png'">
         <div class="member-name">罗伊杭</div>
         <div class="member-info">国防科技大学，多模态图像融合，小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/李朝旭.jpg" alt="李朝旭">
+        <img src="../img/organizers/李朝旭.jpg" alt="李朝旭" onerror="this.onerror=null; this.src='../img/organizers/李朝旭.png'">
         <div class="member-name">李朝旭</div>
         <div class="member-info">国防科技大学，光学遥感小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/郭高伟.jpg" alt="郭高伟">
+        <img src="../img/organizers/郭高伟.jpg" alt="郭高伟" onerror="this.onerror=null; this.src='../img/organizers/郭高伟.png'">
         <div class="member-name">郭高伟</div>
         <div class="member-info">国防科技大学，红外序列小目标检测</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/龙政兴.jpg" alt="龙政兴">
+        <img src="../img/organizers/龙政兴.jpg" alt="龙政兴" onerror="this.onerror=null; this.src='../img/organizers/龙政兴.png'">
         <div class="member-name">龙政兴</div>
         <div class="member-info">国防科技大学，多类别目标的实例分割</div>
       </div>
       <div class="grid-item">
-        <img src="../img/organizers/窦泽超.jpg" alt="窦泽超">
+        <img src="../img/organizers/窦泽超.jpg" alt="窦泽超" onerror="this.onerror=null; this.src='../img/organizers/窦泽超.png'">
         <div class="member-name">窦泽超</div>
         <div class="member-info">国防科技大学，红外序列小目标检测</div>
       </div>
