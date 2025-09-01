@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CSIG2025 红外视频卫星空中动目标检测挑战赛 任务设置、数据集简介及评价方式。">
+  <meta property="og:title" content="CSIG2025 红外视频卫星空中动目标检测挑战赛">
+  <meta property="og:site_name" content="CSIG2025">
+  <meta property="og:url" content="https://wideirstd.github.io/">
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon">
+  <title>赛事说明 - CSIG2025 红外视频卫星空中动目标检测挑战赛</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="./schedule.css">
+  <style>
+    body { margin:0; padding:0; font-family:'Roboto',sans-serif; background:#fff; color:#333; }
+    .outer-container { max-width:1200px; margin:0 auto; padding:20px 15px; }
+    .page-content h2 { text-align:center; margin:2em 0 1em; }
+    .page-content p { max-width:1000px; margin:0 auto 1em; text-indent:2em; line-height:1.6; }
+    .page-content table { width:80%; margin:0 auto 2em; border-collapse:collapse; }
+    .page-content th, .page-content td { border:1px solid #ccc; padding:8px 12px; text-align:center; }
+    .page-content th { background:#f5f5f5; }
+    @media(max-width:768px){ .page-content p, .page-content h2, .page-content table { width:95%; } }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="outer-container">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">CSIG2025</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-right" style="padding-top:10px;">
+            <li><a href="../index.html">主页</a></li>
+            <li><a href="../schedule/index.html">赛事日程</a></li>
+            <li class="active"><a href="./index.html">赛事说明</a></li>
+            <li><a href="../submission/index.html">赛事报名</a></li>
+            <li><a href="../organizers/index.html">赛事组织</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="outer-container">
+    <div class="page-content">
+      <!-- 任务设置 -->
+      <h2 id="TaskSetting">任务设置</h2>
+      <p>本次竞赛的主要任务是对视频中的红外小目标质心进行预测，附加任务是对目标进行跟踪。参赛队伍可根据红外视频特点自行设计算法，利用主办方提供的数据集进行模型训练和验证，最终以召回率（Recall）、精确率（Precision）和F1分数衡量主体性能，轨迹完整度和轨迹准确度作为附加评价指标。</p>
+
+      <!-- 数据集简介 -->
+      <h2 id="DatasetIntroduction">数据集简介</h2>
+      <p>竞赛数据由国防科技大学与武汉大学联合开发，包括：基于热红外卫星的 IRAir 数据集、基于 Landsat 卫星的 IRSatVideo-LEO 数据集，以及武汉一号卫星实测热红外视频数据。共 1400 段视频序列（1000 段用于训练，200 段用于验证，200 段用于测试）。比赛开始后，将发布训练集和验证集视频及掩码标签；进入评测阶段时公布测试集视频，测试集标签不公开。</p>
+
+      <!-- 评价方式 -->
+      <h2 id="EvaluationMethod">结果的评价方式</h2>
+      <p>本次竞赛的算法评价指标为召回率（Recall）和精确率（Precision），附加评价指标为轨迹完整度和轨迹准确度。算法最终评分结果由两部分组成：F1 分数与附加分数。</p>
+       <p><strong>F1分数评价指标：</strong><br></p>
+      <p>召回率（Recall）定义为正确检测的目标数量与目标总数量之比。当检测到的目标质心与对应掩码标签质心距离不超过阈值 <i>Thresh</i> 时，视为正确检测。</p>
+      <p>精确率（Precision）定义为正确检测的目标数量与检测输出目标总数量（包含虚警）的比值。当检测质心与任意标签质心距离均超过阈值 <i>d</i> 时，视为虚警目标。</p>
+      <p>公式如下：</p>
+         <p>Recall = TD / AT<br></p>
+         <p>Precision = TD / (TD + FD)<br></p>
+         <p>其中 TD（True Detection）为正确检测目标数量，FD（False Detection）为虚警数量，AT（Amount of Target）为目标总数量。</p>
+      <p>算法的评分采用F1分数，其公式定义如下：</p>
+      <p>F1 score = (2 * Recall * Precision) / (Recall + Precision)</p>
+
+      <p><strong>附加评价指标：</strong><br></p>
+      <p>轨迹完整度，定义为经过跟踪/轨迹关联后，目标轨迹被完整关联的程度。公式定义为： </p>
+        <p>轨迹完整度= N_TA / N，</p>
+        <p>其中 N_TA 为正确关联点数，N 为标签轨迹点总数。<br></p>
+      <p>轨迹准确度，定义为经过跟踪/轨迹关联后，关联轨迹中各点为真实目标点的概率。公式定义为：</p>
+       <p> 轨迹准确度= N_TA / N_A，</p>
+        <p>其中，N_TA（Number of points True Associated）为关联轨迹中真实目标点数，N_A（Number of points Associated）为算法关联轨迹总点数。
+          其中，N_TA（Number of points True Associated）为关联轨迹中真实目标点数，N_A（Number of points Associated）为算法关联轨迹总点数。</p>
+
+      <p>附加得分为包括两部分：轨迹完整度得分、轨迹准确度得分。</p>
+      <table>
+        <thead>
+          <tr><th>附加得分项 </th><th>≥90%</th><th>≥95%</th><th>≥98%</thead>
+        <tbody>
+          <tr><td>轨迹完整度得分</td><td>+2</td><td> +3 </td><td>+5
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr><th>附加得分项 </th><th>≥98%</th><th>≥99%</th><th>≥99.5%</thead>
+        <tbody>
+          <tr><td>轨迹准确度得分</td><td>+2</td><td> +3 </td><td>+5
+        </tbody>
+      </table>
+
+      <p>最终得分 = F1 score * 100 + 附加分数（轨迹完整度得分 + 轨迹准确度得分），最高分 110 分。</p>
+
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
