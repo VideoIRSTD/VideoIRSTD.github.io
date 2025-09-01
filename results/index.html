@@ -56,53 +56,14 @@
 
   <div class="outer-container">
     <div class="page-content">
-      <!-- 任务设置 -->
-      <h2 id="TaskSetting">任务设置</h2>
-      <p>本次竞赛的主要任务是对视频中的红外小目标质心进行预测，附加任务是对目标进行跟踪。参赛队伍可根据红外视频特点自行设计算法，利用主办方提供的数据集进行模型训练和验证，最终以召回率（Recall）、精确率（Precision）和F1分数衡量主体性能，轨迹完整度和轨迹准确度作为附加评价指标。</p>
-
-      <!-- 数据集简介 -->
-      <h2 id="DatasetIntroduction">数据集简介</h2>
-      <p>竞赛数据由国防科技大学与武汉大学联合开发，包括：基于热红外卫星的 IRAir 数据集、基于 Landsat 卫星的 IRSatVideo-LEO 数据集，以及武汉一号卫星实测热红外视频数据。共 1400 段视频序列（1000 段用于训练，200 段用于验证，200 段用于测试）。比赛开始后，将发布训练集和验证集视频及掩码标签；进入评测阶段时公布测试集视频，测试集标签不公开。</p>
-
-      <!-- 评价方式 -->
-      <h2 id="EvaluationMethod">结果的评价方式</h2>
-      <p>本次竞赛的算法评价指标为召回率（Recall）和精确率（Precision），附加评价指标为轨迹完整度和轨迹准确度。算法最终评分结果由两部分组成：F1 分数与附加分数。</p>
-       <p><strong>F1分数评价指标：</strong><br></p>
-      <p>召回率（Recall）定义为正确检测的目标数量与目标总数量之比。当检测到的目标质心与对应掩码标签质心距离不超过阈值 <i>Thresh</i> 时，视为正确检测。</p>
-      <p>精确率（Precision）定义为正确检测的目标数量与检测输出目标总数量（包含虚警）的比值。当检测质心与任意标签质心距离均超过阈值 <i>d</i> 时，视为虚警目标。</p>
-      <p>公式如下：</p>
-         <p>Recall = TD / AT<br></p>
-         <p>Precision = TD / (TD + FD)<br></p>
-         <p>其中 TD（True Detection）为正确检测目标数量，FD（False Detection）为虚警数量，AT（Amount of Target）为目标总数量。</p>
-      <p>算法的评分采用F1分数，其公式定义如下：</p>
-      <p>F1 score = (2 * Recall * Precision) / (Recall + Precision)</p>
-
-      <p><strong>附加评价指标：</strong><br></p>
-      <p>轨迹完整度，定义为经过跟踪/轨迹关联后，目标轨迹被完整关联的程度。公式定义为： </p>
-        <p>轨迹完整度= N_TA / N，</p>
-        <p>其中 N_TA 为正确关联点数，N 为标签轨迹点总数。<br></p>
-      <p>轨迹准确度，定义为经过跟踪/轨迹关联后，关联轨迹中各点为真实目标点的概率。公式定义为：</p>
-       <p> 轨迹准确度= N_TA / N_A，</p>
-        <p>其中，N_TA（Number of points True Associated）为关联轨迹中真实目标点数，N_A（Number of points Associated）为算法关联轨迹总点数。
-          其中，N_TA（Number of points True Associated）为关联轨迹中真实目标点数，N_A（Number of points Associated）为算法关联轨迹总点数。</p>
-
-      <p>附加得分为包括两部分：轨迹完整度得分、轨迹准确度得分。</p>
-      <table>
-        <thead>
-          <tr><th>附加得分项 </th><th>≥90%</th><th>≥95%</th><th>≥98%</thead>
-        <tbody>
-          <tr><td>轨迹完整度得分</td><td>+2</td><td> +3 </td><td>+5
-        </tbody>
-      </table>
-      <table>
-        <thead>
-          <tr><th>附加得分项 </th><th>≥98%</th><th>≥99%</th><th>≥99.5%</thead>
-        <tbody>
-          <tr><td>轨迹准确度得分</td><td>+2</td><td> +3 </td><td>+5
-        </tbody>
-      </table>
-
-      <p>最终得分 = F1 score * 100 + 附加分数（轨迹完整度得分 + 轨迹准确度得分），最高分 110 分。</p>
+      <!-- 比赛结果 -->
+      <h2 id="TaskSetting">比赛结果</h2>
+      <p>评ICIG2025 第六届CSIG图像图形技术挑战赛—红外视频卫星空中动目标检测（SatVideoIRSTD）赛道获奖队伍名单公示如下：</p>
+      
+<p>在此，组委会祝贺所有获奖队伍取得佳绩！
+我们的线下颁奖典礼以及挑战赛总决赛将在ICIG会议上进行，具体时间为10.31-11.2，会议注册链接为https://icig.csig.org.cn/2025/6165/list.html。
+请获奖的参赛队伍注册并参加ICIG会议，如果无法现场参会，请告知组委会。组委会将安排代领人员，并给获奖队伍邮寄。</p>
+     
 
     </div>
   </div>
